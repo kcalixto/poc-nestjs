@@ -1,0 +1,22 @@
+collection:  # 10/26/2023, 23:13:34:662
+  request:
+    url: http://localhost:3000/login
+    method: GET
+    headers: {}
+  response:  # 51 ms
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      connection: close
+      content-length: '68'
+      content-type: application/json; charset=utf-8
+      date: Fri, 27 Oct 2023 02:13:34 GMT
+      etag: W/"44-Z+ZOgYGGJLNcPwlEi+lKF7WOx9U"
+      x-powered-by: Express
+    body: |-
+      {
+        "message": "Cannot GET /login",
+        "error": "Not Found",
+        "statusCode": 404
+      }
