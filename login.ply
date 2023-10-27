@@ -1,0 +1,8 @@
+login:
+  url: http://localhost:3000/auth/login
+  method: POST
+  headers: {}
+  body: |-
+    {
+      "": ""
+    }
