@@ -9,14 +9,23 @@ export class AuthService {
         private prisma: PrismaService
     ) { }
 
-    login(dto: AuthDTO) {
-        // gen pass
-        // save user
-        // return token
+    login() {
         return "login"
     }
 
-    singup() {
-        return "signup"
+    async singup(dto: AuthDTO) {
+        // gen pass
+        const hash = await argon.hash(dto.password)
+
+        const user = await this.prisma.user.create({
+            data: {
+                username: dto.username,
+                hash: hash
+            }
+        })
+
+        // save user
+        // return token
+        return user
     }
 }

@@ -1,0 +1,11 @@
+signup:
+  url: http://localhost:3000/auth/signup
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body: |-
+    {
+      "username": "aloha@gmail.com",
+      "password": "aloha"
+    }
