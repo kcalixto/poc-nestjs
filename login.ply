@@ -6,6 +6,6 @@ login:
     Accept: application/json
   body: |-
     {
-      "username": "aloha",
+      "username": "aloha@gmail.com",
       "password": "aloha"
     }
