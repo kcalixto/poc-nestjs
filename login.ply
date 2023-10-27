@@ -1,8 +1,11 @@
 login:
   url: http://localhost:3000/auth/login
   method: POST
-  headers: {}
+  headers:
+    Content-Type: application/json
+    Accept: application/json
   body: |-
     {
-      "": ""
+      "username": "aloha",
+      "password": "aloha"
     }

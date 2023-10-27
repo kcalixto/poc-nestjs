@@ -1,0 +1,24 @@
+login:  # 10/27/2023, 03:21:56:646
+  request:
+    url: http://localhost:3000/auth/login
+    method: POST
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    body: |-
+      {
+        "username": "aloha",
+        "password": "aloha"
+      }
+  response:  # 278 ms
+    status:
+      code: 201
+      message: Created
+    headers:
+      connection: close
+      content-length: '5'
+      content-type: text/html; charset=utf-8
+      date: Fri, 27 Oct 2023 06:21:56 GMT
+      etag: W/"5-Jzb6spHwTmm2LUkMPAk2H1uCRho"
+      x-powered-by: Express
+    body: login

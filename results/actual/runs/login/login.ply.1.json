@@ -3,7 +3,7 @@
     "name": "login",
     "test": "login",
     "type": "request",
-    "end": "2023-10-27T02:15:31.669Z",
+    "end": "2023-10-27T06:21:57.030Z",
     "result": {
       "status": "Submitted",
       "message": "Request 'login' SUBMITTED"
@@ -13,25 +13,29 @@
       "type": "request",
       "url": "http://localhost:3000/auth/login",
       "method": "POST",
-      "headers": {},
-      "submitted": "2023-10-27T02:15:31.614Z"
+      "headers": {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      "body": "{\n  \"username\": \"aloha\",\n  \"password\": \"aloha\"\n}",
+      "submitted": "2023-10-27T06:21:56.646Z"
     },
     "response": {
-      "runId": "1078341aab3a1",
+      "runId": "114f590eb772c",
       "status": {
         "code": 201,
         "message": "Created"
       },
       "headers": {
         "connection": "close",
-        "content-length": "4",
+        "content-length": "5",
         "content-type": "text/html; charset=utf-8",
-        "date": "Fri, 27 Oct 2023 02:15:31 GMT",
-        "etag": "W/\"4-qUqP5cyxm6YcTAhz05Hph5gvu9M\"",
+        "date": "Fri, 27 Oct 2023 06:21:56 GMT",
+        "etag": "W/\"5-Jzb6spHwTmm2LUkMPAk2H1uCRho\"",
         "x-powered-by": "Express"
       },
-      "body": "test",
-      "time": 32
+      "body": "login",
+      "time": 278
     }
   }
 ]
