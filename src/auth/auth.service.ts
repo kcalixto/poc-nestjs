@@ -21,8 +21,11 @@ export class AuthService {
             data: {
                 username: dto.username,
                 hash: hash
-            }
+            },
         })
+
+        // temp gambetas
+        delete user.hash
 
         // save user
         // return token
