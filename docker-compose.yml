@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  mysql:
+    image: postgre:13
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: poc_nestjs
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data:/var/lib/postgresql/data
