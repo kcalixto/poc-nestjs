@@ -1,0 +1,40 @@
+[
+  {
+    "name": "users:me",
+    "test": "users:me",
+    "type": "request",
+    "end": "2023-10-28T19:04:16.940Z",
+    "result": {
+      "status": "Submitted",
+      "message": "Request 'users:me' SUBMITTED"
+    },
+    "request": {
+      "name": "users:me",
+      "type": "request",
+      "url": "http://localhost:3000/users/me",
+      "method": "GET",
+      "headers": {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      "submitted": "2023-10-28T19:04:16.797Z"
+    },
+    "response": {
+      "runId": "5662f492a618",
+      "status": {
+        "code": 200,
+        "message": "OK"
+      },
+      "headers": {
+        "connection": "close",
+        "content-length": "8",
+        "content-type": "application/json; charset=utf-8",
+        "date": "Sat, 28 Oct 2023 19:04:16 GMT",
+        "etag": "W/\"8-h5EdGu1QmHe4OkjsU292jNzSLfE\"",
+        "x-powered-by": "Express"
+      },
+      "body": "{\n  \"id\": 1\n}",
+      "time": 112
+    }
+  }
+]

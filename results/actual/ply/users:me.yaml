@@ -1,0 +1,22 @@
+users:me:  # 10/28/2023, 16:04:16:797
+  request:
+    url: http://localhost:3000/users/me
+    method: GET
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+  response:  # 112 ms
+    status:
+      code: 200
+      message: OK
+    headers:
+      connection: close
+      content-length: '8'
+      content-type: application/json; charset=utf-8
+      date: Sat, 28 Oct 2023 19:04:16 GMT
+      etag: W/"8-h5EdGu1QmHe4OkjsU292jNzSLfE"
+      x-powered-by: Express
+    body: |-
+      {
+        "id": 1
+      }

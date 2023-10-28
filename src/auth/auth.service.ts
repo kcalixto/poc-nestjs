@@ -3,11 +3,15 @@ import { PrismaService } from "src/prisma/prisma.service";
 import { AuthDTO } from "./dto";
 import * as argon from "argon2"
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
+import { JwtService } from "@nestjs/jwt";
+import { ConfigService } from "@nestjs/config";
 
 @Injectable()
 export class AuthService {
     constructor(
-        private prisma: PrismaService
+        private config: ConfigService,
+        private prisma: PrismaService,
+        private jwt: JwtService,
     ) { }
 
     async login(dto: AuthDTO) {
@@ -30,12 +34,30 @@ export class AuthService {
             )
 
         // return token
-        delete user.hash
-        return user
+        return this.signToken(user.id, user.username)
     }
 
+    async signToken(
+        userId: number,
+        username: string,
+    ): Promise<{ access_token: string }> {
+        const payload = {
+            sub: userId,
+            username,
+        }
+
+        const access_token = await this.jwt.signAsync(payload, {
+            expiresIn: '1d',
+            secret: (() => {
+                return this.config.get<string>('JWT_SECRET')
+            })(),
+        })
+
+        return { access_token }
+    }
+
+
     async singup(dto: AuthDTO) {
-        // gen pass
         const hash = await argon.hash(dto.password)
 
         try {
@@ -45,12 +67,8 @@ export class AuthService {
                     hash: hash
                 },
             })
-            // temp gambetas
-            delete user.hash
 
-            // save user
-            // return token
-            return user
+            return this.signToken(user.id, user.username)
         } catch (error) {
             if (error instanceof PrismaClientKnownRequestError) {
                 if (error.code === 'P2002') { // Prisma have custom error codes
