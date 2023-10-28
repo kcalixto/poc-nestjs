@@ -1,0 +1,32 @@
+signup:  # 10/28/2023, 14:14:42:506
+  request:
+    url: http://localhost:3000/auth/signup
+    method: POST
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    body: |-
+      {
+        "username": "aloha@gmail.com",
+        "password": "aloha"
+      }
+  response:  # 164 ms
+    status:
+      code: 201
+      message: Created
+    headers:
+      connection: close
+      content-length: '146'
+      content-type: application/json; charset=utf-8
+      date: Sat, 28 Oct 2023 17:14:42 GMT
+      etag: W/"92-9dFUC6Ked6i8fFAlv4SIAb/9YTg"
+      x-powered-by: Express
+    body: |-
+      {
+        "id": 1,
+        "createAt": "2023-10-28T17:14:42.666Z",
+        "updateAt": "2023-10-28T17:14:42.666Z",
+        "username": "aloha@gmail.com",
+        "firstName": null,
+        "lastName": null
+      }
