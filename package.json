@@ -6,8 +6,9 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+    "prisma:dev:deploy": "npx prisma migrate deploy",
     "db:dev:rm": "docker-compose rm postgres -s -f -v",
-    "db:dev:up": "docker-compose up postgres",
+    "db:dev:up": "docker-compose up postgres --detach && sleep 1 && yarn prisma:dev:deploy",
     "db:dev:restart": "yarn db:dev:rm && yarn db:dev:up",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
