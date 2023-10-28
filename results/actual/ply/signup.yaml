@@ -1,4 +1,4 @@
-signup:  # 10/28/2023, 14:14:42:506
+signup:  # 10/28/2023, 17:22:24:591
   request:
     url: http://localhost:3000/auth/signup
     method: POST
@@ -7,26 +7,21 @@ signup:  # 10/28/2023, 14:14:42:506
       Accept: application/json
     body: |-
       {
-        "username": "aloha@gmail.com",
+        "username": "aloha2@gmail.com",
         "password": "aloha"
       }
-  response:  # 164 ms
+  response:  # 233 ms
     status:
       code: 201
       message: Created
     headers:
       connection: close
-      content-length: '146'
+      content-length: '198'
       content-type: application/json; charset=utf-8
-      date: Sat, 28 Oct 2023 17:14:42 GMT
-      etag: W/"92-9dFUC6Ked6i8fFAlv4SIAb/9YTg"
+      date: Sat, 28 Oct 2023 20:22:24 GMT
+      etag: W/"c6-d7cHfBeME2L4qmF0TJECNswBZOU"
       x-powered-by: Express
     body: |-
       {
-        "id": 1,
-        "createAt": "2023-10-28T17:14:42.666Z",
-        "updateAt": "2023-10-28T17:14:42.666Z",
-        "username": "aloha@gmail.com",
-        "firstName": null,
-        "lastName": null
+        "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoiYWxvaGEyQGdtYWlsLmNvbSIsImlhdCI6MTY5ODUyNDU0NCwiZXhwIjoxNjk4NjEwOTQ0fQ.uJy_VhyHbMxcwHsgi269gFHg5--h1WKO-rvSiIbELnY"
       }

@@ -1,12 +1,12 @@
-import { IsEmail, IsNotEmpty, IsString, Max } from "class-validator"
+import { IsEmail, IsNotEmpty, IsString, Length, Max } from "class-validator"
 
 export class AuthDTO {
-    @Max(255)
+    @Length(1, 255)
     @IsEmail()
     @IsNotEmpty()
     username: string;
 
-    @Max(64)
+    @Length(1, 32)
     @IsString()
     @IsNotEmpty()
     password: string;

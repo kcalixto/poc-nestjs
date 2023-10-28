@@ -13,9 +13,6 @@ async function bootstrap() {
     .setTitle('Poc NestJS')
     .setDescription('Nestjs proof of concept')
     .setVersion('0.1')
-    .addTag('auth')
-    .addTag('user')
-    .addTag('bookmark')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);

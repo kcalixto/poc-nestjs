@@ -6,6 +6,6 @@ signup:
     Accept: application/json
   body: |-
     {
-      "username": "aloha@gmail.com",
+      "username": "aloha2@gmail.com",
       "password": "aloha"
     }
