@@ -1,0 +1,27 @@
+auth:login:  # 10/28/2023, 17:48:26:605
+  request:
+    url: http://localhost:3000/auth/login
+    method: POST
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    body: |-
+      {
+        "username": "aloha@gmail.com",
+        "password": "aloha"
+      }
+  response:  # 151 ms
+    status:
+      code: 200
+      message: OK
+    headers:
+      connection: close
+      content-length: '196'
+      content-type: application/json; charset=utf-8
+      date: Sat, 28 Oct 2023 20:48:26 GMT
+      etag: W/"c4-EWsBs6tecu4XZFiEfVR5Sh3iwaI"
+      x-powered-by: Express
+    body: |-
+      {
+        "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWxvaGFAZ21haWwuY29tIiwiaWF0IjoxNjk4NTI2MTA2LCJleHAiOjE2OTg2MTI1MDZ9.o0UJZrMijjLaOm2-fqljse-XJ_Y3EzMhnoqjn5n61F4"
+      }

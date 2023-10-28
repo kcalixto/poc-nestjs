@@ -1,4 +1,4 @@
-import { Controller, Get, HttpCode, HttpStatus, Patch, Req, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, HttpStatus, Patch, Req, UseGuards } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { User } from '@prisma/client';
 import { GetUser } from 'src/auth/decorator';
@@ -22,7 +22,7 @@ export class UserController {
 
     @Patch()
     @HttpCode(HttpStatus.OK)
-    editUser(@GetUser('id') userId: number, dto: EditUserDTO) {
+    editUser(@GetUser('id') userId: number, @Body() dto: EditUserDTO) {
         return this.userService.editUser(userId, dto);
     }
 

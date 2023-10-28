@@ -1,0 +1,41 @@
+[
+  {
+    "name": "users:edit",
+    "test": "users:edit",
+    "type": "request",
+    "end": "2023-10-28T20:51:20.026Z",
+    "result": {
+      "status": "Submitted",
+      "message": "Request 'users:edit' SUBMITTED"
+    },
+    "request": {
+      "name": "users:edit",
+      "type": "request",
+      "url": "http://localhost:3000/users",
+      "method": "PATCH",
+      "headers": {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      "body": "{\n  \"firstName\": \"faustinho\",\n  \"lastName\": \"oloquinho\"\n}",
+      "submitted": "2023-10-28T20:51:19.864Z"
+    },
+    "response": {
+      "runId": "5c3a72d25915",
+      "status": {
+        "code": 200,
+        "message": "OK"
+      },
+      "headers": {
+        "connection": "close",
+        "content-length": "160",
+        "content-type": "application/json; charset=utf-8",
+        "date": "Sat, 28 Oct 2023 20:51:19 GMT",
+        "etag": "W/\"a0-jTWGEXPACQkwqhMY0bbVQSYCI20\"",
+        "x-powered-by": "Express"
+      },
+      "body": "{\n  \"id\": 1,\n  \"createAt\": \"2023-10-28T17:14:42.666Z\",\n  \"updateAt\": \"2023-10-28T20:51:19.970Z\",\n  \"username\": \"aloha@gmail.com\",\n  \"firstName\": \"faustinho\",\n  \"lastName\": \"oloquinho\"\n}",
+      "time": 127
+    }
+  }
+]

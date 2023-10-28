@@ -144,7 +144,7 @@ describe('app e2e', () => {
       it('should edit my user data', () => {
         const dto: EditUserDTO = {
           firstName: 'Fausto',
-          email: 'fausto@lindo.com'
+          username: 'fausto@lindo.com'
         }
 
         return pactum
@@ -157,7 +157,7 @@ describe('app e2e', () => {
           .expectStatus(HttpStatus.OK)
           // check response body
           .expectBodyContains(dto.firstName)
-          .expectBodyContains(dto.email)
+          .expectBodyContains(dto.username)
       })
     })
 

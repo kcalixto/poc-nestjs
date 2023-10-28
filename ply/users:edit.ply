@@ -1,0 +1,12 @@
+users:edit:
+  url: http://localhost:3000/users
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWxvaGFAZ21haWwuY29tIiwiaWF0IjoxNjk4NTI2MTA2LCJleHAiOjE2OTg2MTI1MDZ9.o0UJZrMijjLaOm2-fqljse-XJ_Y3EzMhnoqjn5n61F4
+  body: |-
+    {
+      "firstName": "faustinho",
+      "lastName": "oloquinho"
+    }

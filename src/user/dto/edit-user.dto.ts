@@ -4,7 +4,7 @@ export class EditUserDTO {
     @IsEmail()
     @IsString()
     @IsOptional()
-    readonly email?: string;
+    readonly username?: string;
 
     @IsString()
     @IsOptional()
