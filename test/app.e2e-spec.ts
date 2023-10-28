@@ -4,6 +4,7 @@ import { AppModule } from 'src/app.module';
 import { PrismaService } from 'src/prisma/prisma.service';
 import * as pactum from 'pactum'
 import { AuthDTO } from 'src/auth/dto';
+import { EditUserDTO } from 'src/user/dto';
 
 const TEST_PORT = 3010
 const HOST = `http://localhost:${TEST_PORT}`
@@ -139,11 +140,26 @@ describe('app e2e', () => {
       })
     })
 
-    // describe('edit user', () => {
-    //   it.todo(
-    //     'should edit my user data'
-    //   )
-    // })
+    describe('edit user', () => {
+      it('should edit my user data', () => {
+        const dto: EditUserDTO = {
+          firstName: 'Fausto',
+          email: 'fausto@lindo.com'
+        }
+
+        return pactum
+          .spec()
+          .patch('/users')
+          .withHeaders({
+            Authorization: `Bearer $S{access_token}`
+          })
+          .withBody(dto)
+          .expectStatus(HttpStatus.OK)
+          // check response body
+          .expectBodyContains(dto.firstName)
+          .expectBodyContains(dto.email)
+      })
+    })
 
   })
 
