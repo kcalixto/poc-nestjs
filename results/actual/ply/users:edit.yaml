@@ -1,32 +1,24 @@
-users:edit:  # 10/28/2023, 17:51:19:864
+users:edit:  # 10/28/2023, 18:29:22:947
   request:
-    url: http://localhost:3000/users
-    method: PATCH
+    url: http://localhost:3000/bookmark/1
+    method: GET
     headers:
       Content-Type: application/json
       Accept: application/json
-    body: |-
-      {
-        "firstName": "faustinho",
-        "lastName": "oloquinho"
-      }
-  response:  # 127 ms
+  response:  # 94 ms
     status:
-      code: 200
-      message: OK
+      code: 404
+      message: Not Found
     headers:
       connection: close
-      content-length: '160'
+      content-length: '69'
       content-type: application/json; charset=utf-8
-      date: Sat, 28 Oct 2023 20:51:19 GMT
-      etag: W/"a0-jTWGEXPACQkwqhMY0bbVQSYCI20"
+      date: Sat, 28 Oct 2023 21:29:23 GMT
+      etag: W/"45-ZHg5cdi19CVy1CXeCjJdsc7Okp0"
       x-powered-by: Express
     body: |-
       {
-        "id": 1,
-        "createAt": "2023-10-28T17:14:42.666Z",
-        "updateAt": "2023-10-28T20:51:19.970Z",
-        "username": "aloha@gmail.com",
-        "firstName": "faustinho",
-        "lastName": "oloquinho"
+        "message": "Bookmark not found",
+        "error": "Not Found",
+        "statusCode": 404
       }

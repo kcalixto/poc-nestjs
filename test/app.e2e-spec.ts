@@ -5,6 +5,7 @@ import { PrismaService } from 'src/prisma/prisma.service';
 import * as pactum from 'pactum'
 import { AuthDTO } from 'src/auth/dto';
 import { EditUserDTO } from 'src/user/dto';
+import { CreateBookmarkDTO, EditBookmarkDTO } from 'src/bookmark/dto';
 
 const TEST_PORT = 3010
 const HOST = `http://localhost:${TEST_PORT}`
@@ -163,36 +164,117 @@ describe('app e2e', () => {
 
   })
 
-  // describe('Bookmark', () => {
-  //   describe('create bookmark', () => {
-  //     it.todo(
-  //       'should create a bookmark'
-  //     )
-  //   })
+  describe('Bookmark', () => {
+    // imagine user exp in e2e tests
+    describe('get empty bookmarks', () => {
+      it('should return all my bookmarks (none)', () => {
+        return pactum
+          .spec()
+          .get('/bookmark')
+          .withHeaders({
+            Authorization: `Bearer $S{access_token}`
+          })
+          .expectStatus(HttpStatus.OK)
+          .expectBody([])
+      })
+    })
 
-  //   describe('get bookmarks', () => {
-  //     it.todo(
-  //       'should return all my bookmarks'
-  //     )
-  //   })
+    describe('create bookmark', () => {
+      const dto: CreateBookmarkDTO = {
+        title: 'My Bookmark',
+        description: 'My Bookmark Description',
+        link: 'https://www.google.com',
+      }
 
-  //   describe('get bookmark by id', () => {
-  //     it.todo(
-  //       'should return a bookmark by id'
-  //     )
-  //   })
+      it('should create a bookmark', () => {
+        return pactum
+          .spec()
+          .post('/bookmark')
+          .withHeaders({
+            Authorization: `Bearer $S{access_token}`
+          })
+          .withBody(dto)
+          .expectStatus(HttpStatus.CREATED)
+          .expectBodyContains(dto.title)
+          .expectBodyContains(dto.description)
+          .expectBodyContains(dto.link)
+          .stores('bookmark_id', 'id')
+      })
+    })
 
-  //   describe('edit bookmarks', () => {
-  //     it.todo(
-  //       'should edit a bookmark'
-  //     )
-  //   })
+    describe('get bookmarks', () => {
+      it('should return all my bookmarks', () => {
+        return pactum
+          .spec()
+          .get('/bookmark')
+          .withHeaders({
+            Authorization: `Bearer $S{access_token}`
+          })
+          .expectStatus(HttpStatus.OK)
+          .expectJsonLength(1)
+      })
+    })
 
-  //   describe('delete bookmarks', () => {
-  //     it.todo(
-  //       'should delete a bookmark'
-  //     )
-  //   })
+    describe('get bookmark by id', () => {
+      it('should return a bookmark by id', () => {
+        return pactum
+          .spec()
+          .get(`/bookmark/{id}`)
+          .withPathParams({ 'id': '$S{bookmark_id}' })
+          .withHeaders({
+            Authorization: `Bearer $S{access_token}`
+          })
+          .expectStatus(HttpStatus.OK)
+      })
+    })
 
-  // })
+    describe('edit bookmarks', () => {
+      it('should edit a bookmark', () => {
+        const dto: EditBookmarkDTO = {
+          title: 'My Edited Bookmark',
+          description: 'My Edited Bookmark Description',
+          link: 'https://www2.google.com',
+        }
+
+        return pactum
+          .spec()
+          .patch(`/bookmark/{id}`)
+          .withPathParams({ 'id': '$S{bookmark_id}' })
+          .withHeaders({
+            Authorization: `Bearer $S{access_token}`
+          })
+          .withBody(dto)
+          .expectStatus(HttpStatus.OK)
+          .expectBodyContains(dto.title)
+          .expectBodyContains(dto.description)
+          .expectBodyContains(dto.link)
+      })
+    })
+
+    describe('delete bookmarks', () => {
+      it('should delete a bookmark', () => {
+        return pactum
+          .spec()
+          .delete(`/bookmark/{id}`)
+          .withPathParams({ 'id': '$S{bookmark_id}' })
+          .withHeaders({
+            Authorization: `Bearer $S{access_token}`
+          })
+          .expectStatus(HttpStatus.NO_CONTENT)
+      })
+
+      it('should not find deleted bookmark', () => {
+        return pactum
+          .spec()
+          .get(`/bookmark/{id}`)
+          .withPathParams({ 'id': '$S{bookmark_id}' })
+          .withHeaders({
+            Authorization: `Bearer $S{access_token}`
+          })
+          .expectStatus(HttpStatus.NOT_FOUND)
+          .expectBodyContains('Bookmark not found')
+      })
+    })
+
+  })
 })
