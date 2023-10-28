@@ -1,7 +1,7 @@
 version: '3.8'
 services:
-  mysql:
-    image: postgre:13
+  postgres:
+    image: postgres:13
     container_name: postgres
     environment:
       POSTGRES_USER: postgres
