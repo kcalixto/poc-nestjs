@@ -9,5 +9,3 @@ services:
       POSTGRES_DB: poc_nestjs
     ports:
       - 5432:5432
-    volumes:
-      - ./data:/var/lib/postgresql/data
