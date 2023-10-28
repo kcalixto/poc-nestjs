@@ -1,4 +1,4 @@
-signup:  # 10/27/2023, 03:42:17:782
+signup:  # 10/28/2023, 02:06:22:121
   request:
     url: http://localhost:3000/auth/signup
     method: POST
@@ -10,24 +10,19 @@ signup:  # 10/27/2023, 03:42:17:782
         "username": "aloha@gmail.com",
         "password": "aloha"
       }
-  response:  # 216 ms
+  response:  # 94 ms
     status:
-      code: 201
-      message: Created
+      code: 500
+      message: Internal Server Error
     headers:
       connection: close
-      content-length: '253'
+      content-length: '52'
       content-type: application/json; charset=utf-8
-      date: Fri, 27 Oct 2023 06:42:18 GMT
-      etag: W/"fd-GnA6kz493SslhD4JREmcj+ro2Fo"
+      date: Sat, 28 Oct 2023 05:06:22 GMT
+      etag: W/"34-rlKccw1E+/fV8niQk4oFitDfPro"
       x-powered-by: Express
     body: |-
       {
-        "id": 1,
-        "createAt": "2023-10-27T06:42:17.997Z",
-        "updateAt": "2023-10-27T06:42:17.997Z",
-        "username": "aloha@gmail.com",
-        "hash": "$argon2id$v=19$m=65536,t=3,p=4$ovtnU3I/bk6gzMKEaRVKIA$/LTgWVO32Pr+P7R3/k48WTE4a89Yyv0iqO5doCOYlxk",
-        "firstName": null,
-        "lastName": null
+        "statusCode": 500,
+        "message": "Internal server error"
       }

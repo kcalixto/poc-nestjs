@@ -3,7 +3,7 @@
     "name": "signup",
     "test": "signup",
     "type": "request",
-    "end": "2023-10-27T06:42:18.048Z",
+    "end": "2023-10-28T05:06:22.238Z",
     "result": {
       "status": "Submitted",
       "message": "Request 'signup' SUBMITTED"
@@ -18,24 +18,24 @@
         "Accept": "application/json"
       },
       "body": "{\n  \"username\": \"aloha@gmail.com\",\n  \"password\": \"aloha\"\n}",
-      "submitted": "2023-10-27T06:42:17.782Z"
+      "submitted": "2023-10-28T05:06:22.121Z"
     },
     "response": {
-      "runId": "11611e39c625b",
+      "runId": "28a9be029a32",
       "status": {
-        "code": 201,
-        "message": "Created"
+        "code": 500,
+        "message": "Internal Server Error"
       },
       "headers": {
         "connection": "close",
-        "content-length": "253",
+        "content-length": "52",
         "content-type": "application/json; charset=utf-8",
-        "date": "Fri, 27 Oct 2023 06:42:18 GMT",
-        "etag": "W/\"fd-GnA6kz493SslhD4JREmcj+ro2Fo\"",
+        "date": "Sat, 28 Oct 2023 05:06:22 GMT",
+        "etag": "W/\"34-rlKccw1E+/fV8niQk4oFitDfPro\"",
         "x-powered-by": "Express"
       },
-      "body": "{\n  \"id\": 1,\n  \"createAt\": \"2023-10-27T06:42:17.997Z\",\n  \"updateAt\": \"2023-10-27T06:42:17.997Z\",\n  \"username\": \"aloha@gmail.com\",\n  \"hash\": \"$argon2id$v=19$m=65536,t=3,p=4$ovtnU3I/bk6gzMKEaRVKIA$/LTgWVO32Pr+P7R3/k48WTE4a89Yyv0iqO5doCOYlxk\",\n  \"firstName\": null,\n  \"lastName\": null\n}",
-      "time": 216
+      "body": "{\n  \"statusCode\": 500,\n  \"message\": \"Internal server error\"\n}",
+      "time": 94
     }
   }
 ]

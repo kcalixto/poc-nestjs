@@ -2,6 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { PrismaService } from "src/prisma/prisma.service";
 import { AuthDTO } from "./dto";
 import * as argon from "argon2"
+import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 
 @Injectable()
 export class AuthService {
@@ -10,6 +11,11 @@ export class AuthService {
     ) { }
 
     login() {
+        // find user
+        
+        // check password
+        
+        // return token
         return "login"
     }
 
@@ -17,18 +23,27 @@ export class AuthService {
         // gen pass
         const hash = await argon.hash(dto.password)
 
-        const user = await this.prisma.user.create({
-            data: {
-                username: dto.username,
-                hash: hash
-            },
-        })
+        try {
+            const user = await this.prisma.user.create({
+                data: {
+                    username: dto.username,
+                    hash: hash
+                },
+            })
+            // temp gambetas
+            delete user.hash
 
-        // temp gambetas
-        delete user.hash
-
-        // save user
-        // return token
-        return user
+            // save user
+            // return token
+            return user
+        } catch (error) {
+            if (error instanceof PrismaClientKnownRequestError) {
+                if (error.code === 'P2002') { // Prisma have custom error codes
+                    throw new Error("Username already exists")
+                }
+            }
+             
+            throw error
+        }
     }
 }
