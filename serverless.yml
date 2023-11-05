@@ -1,0 +1,28 @@
+service: poc-nestjs
+
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  stage: poc
+  region: sa-east-1
+  memorySize: 128
+  timeout: 30
+  logRetentionInDays: 1
+
+functions:
+  handler:
+    handler: dist/lambda.handler
+    package:
+      include:
+        - dist/**
+        - node_modules/**
+    events:
+      - http:
+          path: /{proxy+}
+          method: any
+          cors: true
+
+plugins:
+  - serverless-jetpack

@@ -8,14 +8,12 @@
   "scripts": {
     "prisma:dev:deploy": "npx prisma migrate deploy",
     "db:dev:rm": "docker-compose rm postgres -s -f -v",
-    "db:dev:up": "docker-compose up postgres --detach && sleep 1 && yarn prisma:dev:deploy",
-    "db:dev:restart": "yarn db:dev:rm && yarn db:dev:up",
-
+    "db:dev:up": "docker-compose up postgres --detach && sleep 1 && npm run prisma:dev:deploy",
+    "db:dev:restart": "npm run db:dev:rm && npm run db:dev:up",
     "prisma:test:deploy": "dotenv -e .env.test -- npx prisma migrate deploy",
     "db:test:rm": "docker-compose rm test-postgres -s -f -v",
-    "db:test:up": "docker-compose up test-postgres --detach && sleep 1 && yarn prisma:test:deploy",
-    "db:test:restart": "yarn db:test:rm && yarn db:test:up",
-    
+    "db:test:up": "docker-compose up test-postgres --detach && sleep 1 && npm run prisma:test:deploy",
+    "db:test:restart": "npm run db:test:rm && npm run db:test:up",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
@@ -27,9 +25,9 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    
-    "pretest:e2e": "yarn db:test:restart",
-    "test:e2e": "dotenv -e .env.test -- jest --watch --no-cache --config ./test/jest-e2e.json"
+    "pretest:e2e": "npm run db:test:restart",
+    "test:e2e": "dotenv -e .env.test -- jest --watch --no-cache --config ./test/jest-e2e.json",
+    "postinstall": "npx prisma generate"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
@@ -40,6 +38,7 @@
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/swagger": "^7.1.14",
     "@prisma/client": "^5.5.2",
+    "@vendia/serverless-express": "^4.10.4",
     "argon2": "^0.31.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
@@ -69,6 +68,7 @@
     "pactum": "^3.5.1",
     "prettier": "^3.0.0",
     "prisma": "^5.5.2",
+    "serverless-jetpack": "^0.11.2",
     "source-map-support": "^0.5.21",
     "supertest": "^6.3.3",
     "ts-jest": "^29.1.0",
